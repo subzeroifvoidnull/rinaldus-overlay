@@ -1,12 +1,12 @@
 <repositories xmlns="" version="1.0">
  <repo quality="experimental" status="unofficial">
-    <name>rinaldus-overlay</name>
-    <description lang="en">Rinaldus overlay</description>
-    <homepage>https://github.com/rinaldus/rinaldus-overlay/</homepage>
+    <name>rinaldus-overlay modified</name>
+    <description lang="en">Rinaldus overlay for mate desktop</description>
+    <homepage>https://github.com/subzeroifvoidnull/rinaldus-overlay/</homepage>
     <owner type="person">
-      <email>forreg@rinaldus.ru</email>
-      <name>Rinaldus</name>
+      <email>fbeve0@gmail.com</email>
+      <name>Rinaldus MATE</name>
     </owner>
-    <source type="git">https://github.com/rinaldus/rinaldus-overlay.git</source>
+    <source type="git">https://github.com/subzeroifvoidnull/rinaldus-overlay.git</source>
  </repo>
 </repositories>
