@@ -2,11 +2,11 @@
  <repo quality="experimental" status="unofficial">
     <name>rinaldus-overlay modified</name>
     <description lang="en">Rinaldus overlay for mate desktop</description>
-    <homepage>https://github.com/subzeroifvoidnull/rinaldus-overlay/</homepage>
+    <homepage>https://github.com/subzeroifvoidnull/master/rinaldus-overlay/</homepage>
     <owner type="person">
       <email>fbeve0@gmail.com</email>
       <name>Rinaldus MATE</name>
     </owner>
-    <source type="git">https://github.com/subzeroifvoidnull/rinaldus-overlay.git</source>
+    <source type="git">https://github.com/subzeroifvoidnull/master/rinaldus-overlay.git</source>
  </repo>
 </repositories>
