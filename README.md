@@ -16,4 +16,5 @@ https://github.com/rinaldus/rinaldus-overlay/raw/master/repositories.xml
 
 .............................................................................................................
 
+Added :
 git clone https://github.com/subzeroifvoidnull/rinaldus-overlay.git
