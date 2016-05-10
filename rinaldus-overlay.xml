@@ -5,12 +5,12 @@
                 <description>Daves mod of Rinaldus overlay with seafile and something
 else</description>
 
-<homepage>https://github.com/subzeroifvoidnull/rinaldus-overlay/</homepage>
+<homepage>https://github.com/subzeroifvoidnull/master/rinaldus-overlay/</homepage>
                 <owner>
-                        <email>forreg@rinaldus.ru</email>
+                        <email>fbeve0@gmail.com</email>
                 </owner>
                 <source 
-type="git">https://github.com/subzeroifvoidnull/rinaldus-overlay.git</source>
+type="git">https://github.com/subzeroifvoidnull/master/rinaldus-overlay.git</source>
         </repo>
 </repositories>
 ~               
