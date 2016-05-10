@@ -1,0 +1,59 @@
+https://wiki.gentoo.org/wiki/Overlay/Local_overlay
+
+Overlay/Local overlay
+< Overlay
+Someone handed you an ebuild, and you don't know what to do with it? Fear not, for here be instructions!
+
+Creating a local overlay
+A local repository aka local overlay can be set up with a few easy steps creating the mandatory elements of the repository format.
+
+root #mkdir -p /usr/local/portage/{metadata,profiles}
+root #echo 'NameOfYourOverlay' > /usr/local/portage/profiles/repo_name
+root #echo 'masters = gentoo' > /usr/local/portage/metadata/layout.conf
+root #chown -R portage:portage /usr/local/portage
+Next, tell Portage about the overlay:
+
+root #mkdir -p /etc/portage/repos.conf
+FILE /etc/portage/repos.conf/local.conf
+[NameOfYourOverlay]
+location = /usr/local/portage
+masters = gentoo
+auto-sync = no
+ Note
+NameOfYourOverlay is an example and you should change it to something meaningful in all locations.
+ Note
+The old method of setting the PORTDIR_OVERLAY variable in make.conf is deprecated and should not be used.
+Adding an ebuild to the overlay
+Now that the basic layout is in order, you can add an ebuild to the overlay. In this example, app-dicts/artha-1.0.2 (available at [1]). We will assume the ebuild is in the homedir of the user myuser, and named artha-1.0.2.ebuild.
+
+root #mkdir -p /usr/local/portage/app-dicts/artha
+root #cp ~myuser/artha-1.0.2.ebuild /usr/local/portage/app-dicts/artha/artha-1.0.2.ebuild
+root #chown -R portage:portage /usr/local/portage
+root #pushd /usr/local/portage/app-dicts/artha
+root #repoman manifest
+root #popd
+You should now be able to install the package from your overlay with emerge.
+
+root #emerge --ask --verbose --oneshot app-dicts/artha
+Crossdev
+crossdev will automatically place the ebuilds/categories it generates into the highest priority overlay found in /etc/portage/repos.conf/. In order to do this you must set the priority number to something low. Most users will want to prevent crossdev from disturbing layman's overlays or the user's personal per-machine overlay (normally created at /usr/local/portage). The best solution is to create an overlay specifically for crossdev's use:
+
+root #mkdir -p /usr/local/portage-crossdev/{profiles,metadata}
+root #echo 'local-crossdev' > /usr/local/portage-crossdev/profiles/repo_name
+root #echo 'masters = gentoo' > /usr/local/portage-crossdev/metadata/layout.conf
+root #chown -R portage:portage /usr/local/portage-crossdev
+If the main Portage tree is synchronized using Git, or any other method with Manifest files that do not include checksums for ebuilds, prevent "masked by: corruption" errors with:
+
+FILE /usr/local/portage-crossdev/metadata/layout.conf
+masters = gentoo
+thin-manifests = true
+Then instruct Portage and crossdev to use this overlay:
+
+FILE /etc/portage/repos.conf/crossdev.conf
+[local-crossdev]
+location = /usr/local/portage-crossdev
+priority = 10
+masters = gentoo
+auto-sync = no
+
+I think you can do: cd /usr/local/portage ; git clone https://github.com/subzeroifvoidnull/rinaldus-overlay.git ; and work from there..
